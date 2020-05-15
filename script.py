@@ -3,21 +3,6 @@ from display import *
 from matrix import *
 from draw import *
 
-"""======== first_pass( commands ) ==========
-
-  Checks the commands array for any animation commands
-  (frames, basename, vary)
-
-  Should set num_frames and basename if the frames
-  or basename commands are present
-
-  If vary is found, but frames is not, the entire
-  program should exit.
-
-  If frames is found, but basename is not, set name
-  to some default value, and print out a message
-  with the name being used.
-  ==================== """
 def first_pass(commands):
     name = ""
     num_frames = 1
@@ -58,6 +43,21 @@ def first_pass(commands):
   ===================="""
 def second_pass(commands, num_frames):
     frames = [{} for i in range(num_frames)]
+    for command in commands:
+        c = command["op"]
+        args = command["args"]
+        if c == "vary":
+            name = args[0]
+            start = args[1]
+            end = args[2]
+            val0 = args[3]
+            val1 = args[4]
+            if (start >= end):
+                print("Frame order in knob is wrong!")
+                exit()
+            for i in range(start, end + 1):
+                value = (i - start) / (end - start) * (val1 - val0) + val0
+                frames[i][name] = value 
     return frames
 
 
