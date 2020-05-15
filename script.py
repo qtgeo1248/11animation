@@ -127,18 +127,18 @@ def run(filename):
             stack[-1] = [x[:] for x in tmp]
             tmp = []
         elif c == 'rotate':
-            theta = args[1] * (math.pi/180)
+            theta = args[1] * (math.pi / 180)
             if args[0] == 'x':
                 tmp = make_rotX(theta)
             elif args[0] == 'y':
                 tmp = make_rotY(theta)
             else:
                 tmp = make_rotZ(theta)
-            matrix_mult( stack[-1], tmp )
+            matrix_mult(stack[-1], tmp)
             stack[-1] = [ x[:] for x in tmp]
             tmp = []
         elif c == 'push':
-            stack.append([x[:] for x in stack[-1]] )
+            stack.append([x[:] for x in stack[-1]])
         elif c == 'pop':
             stack.pop()
         elif c == 'display':
