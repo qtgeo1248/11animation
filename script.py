@@ -171,3 +171,12 @@ def run(filename):
                 display(screen)
             elif c == "save":
                 save_extension(screen, args[0])
+            save_extension(screen, "anim/" + basename + "%03d"%i)
+        stack = [[x[:] for x in tmp]]
+        screen = new_screen()
+        zbuffer = new_zbuffer()
+        tmp = []
+        consts = ""
+        coords = []
+        coords1 = []
+    make_animation()
