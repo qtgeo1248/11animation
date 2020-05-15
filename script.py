@@ -47,16 +47,17 @@ def second_pass(commands, num_frames):
         c = command["op"]
         args = command["args"]
         if c == "vary":
-            start = args[0]
-            end = args[1]
+            knob = command["knob"]
+            start = int(args[0])
+            end = int(args[1])
             val0 = args[2]
             val1 = args[3]
             if (start >= end):
                 print("Frame order in knob is wrong!")
                 exit()
             for i in range(start, end + 1):
-                value = (i - start) / (end - start) * (val1 - val0) + val0
-                frames[i][name] = value
+                value = 1.0 * (i - start) / (end - start) * (val1 - val0) + val0
+                frames[i][knob] = value
     return frames
 
 
@@ -97,11 +98,10 @@ def run(filename):
     coords = []
     coords1 = []
     for i in range(num_frames):
+        print("Frame " + str(i))
         for command in commands:
-            print(command)
             c = command["op"]
             args = command["args"]
-            knob = command["knob"]
             knob_value = 1
 
             if c == "box":
@@ -134,24 +134,24 @@ def run(filename):
                 draw_lines(tmp, screen, zbuffer, color)
                 tmp = []
             elif c == "move":
-                if (knob and (args[3] in frames[i])):
-                    knob_value = frames[i][knob]
+                if command["knob"]:
+                    knob_value = frames[i][command["knob"]]
                 tmp = make_translate(args[0] * knob_value, args[1] * knob_value, args[2] * knob_value)
                 matrix_mult(stack[-1], tmp)
                 stack[-1] = [x[:] for x in tmp]
                 tmp = []
                 knob_value = 1
             elif c == "scale":
-                if (knob and (knob in frames[i])):
-                    knob_value = frames[i][knob]
+                if command["knob"]:
+                    knob_value = frames[i][command["knob"]]
                 tmp = make_scale(args[0] * knob_value, args[1] * knob_value, args[2] * knob_value)
                 matrix_mult(stack[-1], tmp)
                 stack[-1] = [x[:] for x in tmp]
                 tmp = []
                 knob_value = 1
             elif c == "rotate":
-                if (knob and (knob in frames[i])):
-                    knob_value = frames[i][knob]
+                if command["knob"]:
+                    knob_value = frames[i][command["knob"]]
                 theta = args[1] * (math.pi / 180)
                 if args[0] == "x":
                     tmp = make_rotX(theta * knob_value)
@@ -171,12 +171,16 @@ def run(filename):
                 display(screen)
             elif c == "save":
                 save_extension(screen, args[0])
-            save_extension(screen, "anim/" + basename + "%03d"%i)
+            save_extension(screen, "anim/" + name + "%03d"%i)
+        tmp = new_matrix()
+        ident(tmp)
         stack = [[x[:] for x in tmp]]
         screen = new_screen()
         zbuffer = new_zbuffer()
         tmp = []
+        step_3d = 100
         consts = ""
         coords = []
         coords1 = []
-    make_animation()
+    if num_frames > 1:
+        make_animation(name)
