@@ -1,6 +1,9 @@
 *.png
 *.ppm
 *.gif
+*.out
+parsetab.py
+pong*
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
