@@ -1,5 +1,5 @@
 basename pong
-frames 76
+frames 152
 constants bronze 0.2125 0.714 0.393548 0.1275 0.4284 0.271906 0.054 0.18144 0.166721
 constants green_rubber 0.0 0.4 0.04 0.05 0.5 0.7 0.0 0.4 0.04
 constants brass 0.329412 0.780392 0.992157 0.223529 0.568627 0.941176 0.027451 0.113725 0.807843
@@ -8,90 +8,90 @@ constants plastic_orange 0.20392 0.8 1.0 0.09804 0.4 1.0 0.0 0.0 1.0
 constants grass_green 0.07843 0.33725 0.79216 0.10196 0.49019 0.90196 0.01176 0.27451 0.87843
 push
 move 250 250 0
-//scale 0.9 0.9 0.9
-//rotate z -90
-//rotate x 20
-//rotate y -60
+scale 0.9 0.9 0.9
+rotate z -90
+rotate x 20
+rotate y -60
 box silver -275 -230 0 550 20 20
 box silver -275 250 0 550 20 20
 box grass_green -275 250 -20 550 500 1
 push
 move 220 20 0 ball0
-vary ball0 0 19 0 1
-vary ball0 20 75 1 1
+vary ball0 0 39 0 1
+vary ball0 40 151 1 1
 move -120 200 0 ball1
-vary ball1 0 19 0 0
-vary ball1 20 31 0 1
-vary ball1 32 75 1 1
+vary ball1 0 39 0 0
+vary ball1 40 63 0 1
+vary ball1 64 151 1 1
 move -200 -440 0 ball2
-vary ball2 0 31 0 0
-vary ball2 32 47 0 1
-vary ball2 48 75 1 1
+vary ball2 0 63 0 0
+vary ball2 64 95 0 1
+vary ball2 96 151 1 1
 move -120 370 0 ball3
-vary ball3 0 47 0 0
-vary ball3 48 57 0 1
-vary ball3 58 75 1 1
+vary ball3 0 95 0 0
+vary ball3 96 115 0 1
+vary ball3 116 151 1 1
 move 70 70 0 ball4
-vary ball4 0 57 0 0
-vary ball4 58 60 0 1
-vary ball4 61 75 1 1
+vary ball4 0 115 0 0
+vary ball4 116 121 0 1
+vary ball4 122 151 1 1
 move 425 -410 0 ball5
-vary ball5 0 60 0 0
-vary ball5 61 75 0 1
+vary ball5 0 121 0 0
+vary ball5 122 151 0 1
 sphere plastic_orange 0 0 0 10
 pop
 push
 move 240 0 -20
 move 0 -20 0 r0
-vary r0 0 1 0 1
-vary r0 2 75 1 1
+vary r0 0 3 0 1
+vary r0 4 151 1 1
 move 0 120 0 r1
-vary r1 0 1 0 0
-vary r1 2 13 0 1
-vary r1 14 75 1 1
+vary r1 0 3 0 0
+vary r1 4 27 0 1
+vary r1 28 151 1 1
 move 0 -70 0 r2
-vary r2 0 13 0 0
-vary r2 14 20 0 1
-vary r2 21 75 1 1
+vary r2 0 27 0 0
+vary r2 28 41 0 1
+vary r2 42 151 1 1
 move 0 120 0 r3
-vary r3 0 20 0 0
-vary r3 21 32 0 1
-vary r3 33 75 1 1
+vary r3 0 41 0 0
+vary r3 42 65 0 1
+vary r3 66 151 1 1
 move 0 -200 0 r4
-vary r4 0 32 0 0
-vary r4 33 52 0 1
-vary r4 53 75 1 1
+vary r4 0 65 0 0
+vary r4 66 105 0 1
+vary r4 106 151 1 1
 move 0 90 0 r5
-vary r5 0 52 0 0
-vary r5 53 61 0 1
-vary r5 62 75 1 1
+vary r5 0 105 0 0
+vary r5 106 123 0 1
+vary r5 124 151 1 1
 move 0 -130 0 r6
-vary r6 0 61 0 0
-vary r6 62 75 0 1
+vary r6 0 123 0 0
+vary r6 124 151 0 1
 scale 1 1 1 shrink
 box silver -10 80 20 20 160 20
 pop
 push
 move -240 0 -20
 move 0 -100 0 l0
-vary l0 0 9 0 1
-vary l0 10 75 1 1
+vary l0 0 19 0 1
+vary l0 20 151 1 1
 move 0 220 0 l1
-vary l1 0 9 0 0
-vary l1 10 31 0 1
-vary l1 32 75 1 1
+vary l1 0 19 0 0
+vary l1 20 63 0 1
+vary l1 64 151 1 1
 move 0 -130 0 l2
-vary l2 0 31 0 0
-vary l2 32 44 0 1
-vary l2 45 75 1 1
+vary l2 0 63 0 0
+vary l2 64 89 0 1
+vary l2 90 151 1 1
 move 0 160 0 l3
-vary l3 0 44 0 0
-vary l3 45 60 0 1
-vary l3 61 75 1 1
+vary l3 0 89 0 0
+vary l3 90 121 0 1
+vary l3 122 151 1 1
 move 0 -150 0 l4
-vary l4 0 60 0 0
-vary l4 61 75 0 1
+vary l4 0 121 0 0
+vary l4 122 151 0 1
 scale 1 1 1 shrink
 box silver -10 80 20 20 160 20
 pop
-vary shrink 0 75 1 0.5
+vary shrink 0 151 1 0.5
