@@ -75,7 +75,7 @@ def run(filename):
 
     view = [0, 0, 1];
     ambient = [50, 50, 50]
-    light = [[0.5, 0.75, 1],
+    light = [[0.5, 0.75, 1.0],
              [255, 255, 255]]
     color = [0, 0, 0]
     symbols[".white"] = ["constants", {"red": [0.2, 0.5, 0.5],
